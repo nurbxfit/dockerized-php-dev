@@ -1,0 +1,10 @@
+# For Apached usage only, no need if we are use nginx.
+
+# This will Remove index.php from request and maintain the query string
+
+RewriteEngine On
+RewriteBase /api/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.\*)$ index.php?$1 [L,QSA]
